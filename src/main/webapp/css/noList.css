@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+/* ================= 기본 ================= */
+body {
+    margin: 0;
+    background: #fafafa;
+}
+
+/* ================= 컨테이너 ================= */
+.container {
+    width: 1200px;
+    margin: 40px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* ================= 제목 ================= */
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+/* ================= 상단 버튼 영역 ================= */
+.top-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+    gap: 8px;
+}
+
+/* ================= 버튼 (통일 스타일) ================= */
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #f5f5f5;
+}
+
+/* 주요 버튼 (orange theme) */
+.btn.primary {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+}
+
+.btn.primary:hover {
+    background: #e85a2a;
+}
+
+/* ================= 리스트 테이블 (카드형) ================= */
+.noList {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    font-size: 14px;
+    text-align:center;
+    table-layout: fixed;
+}
+
+/* header */
+.noList th {
+    background: #f8f8f8;
+    padding: 14px;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    text-align:center;
+    vertical-align:middle;
+}
+
+/* row */
+.noList td {
+    padding: 14px;
+    border-bottom: 1px solid #f1f1f1;
+    text-align:center;
+    vertical-align:middle;
+}
+
+/* hover */
+.noList tr:hover {
+    background: #f9fbff;
+}
+
+/* title column */
+.noList td.title {
+    text-align: left;
+    padding-left: 18px;
+    font-weight: 500;
+}
+
+/* 링크 */
+.noList a {
+    text-decoration: none;
+    color: #333;
+}
+
+.noList a:hover {
+    color: #ff6b35;
+}
+
+/* empty */
+.noList .empty {
+    padding: 50px;
+    color: #999;
+}
+
+
+/* ================= 컬럼 정렬 & 비율 (추가/override) ================= */
+
+
+/* 컬럼 비율 */
+.noList th:nth-child(1),
+.noList td:nth-child(1){ width:8%; }
+
+.noList th:nth-child(2),
+.noList td:nth-child(2){ width:40%; }
+
+.noList th:nth-child(3),
+.noList td:nth-child(3){ width:15%; }
+
+.noList th:nth-child(4),
+.noList td:nth-child(4){ width:10%; }
+
+.noList th:nth-child(5),
+.noList td:nth-child(5){ width:7%; }
+
+
+
+/* ================= 상세보기 ================= */
+.notice_view {
+    background: #fff;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.notice_title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 12px;
+}
+
+.notice_info {
+    font-size: 13px;
+    color: #888;
+    margin-top: 10px;
+}
+
+.notice_content {
+    margin-top: 25px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    min-height: 250px;
+}
+
+.notice_content pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+}
+
+/* ================= 버튼 영역 ================= */
+.content_btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* ================= 페이징 영역 ================= */
+.paging{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:30px;
+}
+
+/* 기본 버튼 */
+.paging a{
+    display:inline-block;
+    min-width:36px;
+    padding:8px 12px;
+
+    border:1px solid #ddd;
+    border-radius:8px;
+
+    text-decoration:none;
+    color:#555;
+    background:#fff;
+
+    font-size:14px;
+    transition:0.2s;
+}
+
+/* hover */
+.paging a:hover{
+    background:#ff6b35;
+    color:#fff;
+    border-color:#ff6b35;
+    transform:translateY(-2px);
+}
+
+/* 현재 페이지 */
+.paging a.active{
+    background:#ff6b35;
+    color:#fff;
+    border-color:#ff6b35;
+    font-weight:bold;
+}
+
+/* 비활성 느낌 (선택) */
+.paging a.disabled{
+    pointer-events:none;
+    opacity:0.4;
+}

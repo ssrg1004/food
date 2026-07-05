@@ -1,0 +1,165 @@
+/* ==========================================
+   식당 정보 정밀 수정 폼 (resModifyForm) 전용 스타일
+   ========================================== */
+
+.formTable { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+}
+
+.formTable th { 
+    text-align: left; 
+    padding: 12px; 
+    width: 130px; 
+    color: #666; 
+    font-weight: bold; 
+    border-bottom: 1px solid #f0f0f0; 
+}
+
+.formTable td { 
+    padding: 12px; 
+    border-bottom: 1px solid #f0f0f0; 
+}
+
+.inputField { 
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    font-size: 14px; 
+    box-sizing: border-box; 
+}
+
+/* 주소 입력창 복수 배열용 마진 */
+.addressField {
+    margin-bottom: 5px;
+}
+
+/* 상세 설명 textarea 전용 */
+.contentAreaText {
+    resize: none;
+}
+
+/* 이미지 정밀 관리 레이아웃 */
+.imgUpdateBox { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    margin-top: 10px; 
+}
+
+.imgUpdateItem { 
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px; 
+    padding: 10px; 
+    width: 180px; 
+    text-align: center; 
+    background: #fdfdfd; 
+}
+
+.imgUpdateItem img { 
+    width: 100%; 
+    height: 110px; 
+    object-fit: cover; 
+    border-radius: 6px; 
+    margin-bottom: 8px; 
+}
+
+/* 이미지 섹션 안내 문구 및 구분선 */
+.imgNotice {
+    font-size: 13px; 
+    color: #888; 
+    margin-bottom: 10px;
+}
+
+.imgItemName {
+    font-size: 12px; 
+    color: #555; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+}
+
+.imgDivider {
+    border: 0; 
+    border-top: 1px solid #eee; 
+    margin: 8px 0;
+}
+
+.delLabel { 
+    color: #ff5a5f; 
+    font-size: 13px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+.noImgMsg {
+    font-size: 14px; 
+    color: #999;
+}
+
+/* 새 이미지 파일 업로드 영역 */
+.fileInputGroup {
+    margin-bottom: 8px;
+}
+
+.fileInputGroup:last-child {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.fileLabel {
+    font-size: 14px; 
+    font-weight: bold; 
+    color: #555;
+}
+
+.fileUploadBtn {
+    margin-top: 5px;
+}
+
+/* ==========================================
+   하단 버튼 영역 (btnArea) 스타일 통합
+   ========================================== */
+
+.btnArea {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* 두 버튼 공통 스타일 (크기, 폰트, 테두리 등을 완벽히 일치시킴) */
+.btnArea input[type="submit"],
+.btnArea input[type="button"] {
+    width: 130px;
+    padding: 12px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* 마우스 올렸을 때 부드럽게 변하는 효과 */
+    margin: 0 5px; /* 버튼 사이 간격 */
+}
+
+/* [수정 완료] 버튼 전용: 신뢰감을 주는 파란색 */
+.btnArea input[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* [수정 완료] 마우스 올렸을 때 조금 더 짙은 파란색 */
+.btnArea input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* [취소] 버튼 전용: 차분한 회색 */
+.btnArea input[type="button"] {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+/* [취소] 마우스 올렸을 때 조금 더 짙은 회색 */
+.btnArea input[type="button"]:hover {
+    background-color: #dee2e6;
+}

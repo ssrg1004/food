@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+/* =======================================================
+   💡 [기본 규격] noList.css의 컨테이너 구조와 100% 동기화
+   ======================================================= */
+.container {
+    width: 1200px;
+    margin: 40px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* ================= 컨테이너 내부 h1 위치 동기화 ================= */
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px; /* 글쓰기 버튼이 없으므로 아래 카드와의 여백 조정 */
+    color: #222;
+}
+
+/* ================= 공지 상세 카드형 레이아웃 ================= */
+.notice_view {
+    width: 100%;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    padding: 40px; /* 조금 더 시원해 보이도록 패딩 확장 */
+    box-sizing: border-box;
+}
+
+/* 제목 스타일 */
+.notice_title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 16px 0;
+}
+
+/* 메타 정보 (회색빛 정돈) */
+.notice_info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 35px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notice_info strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.notice_info .divider {
+    color: #e0e0e0;
+}
+
+/* 본문 영역 */
+.notice_content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    min-height: 300px;
+}
+
+.notice_content pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* =======================================================
+   💡 [하단 버튼 영역] 홈페이지 구성에 맞춘 고급화 디자인
+   ======================================================= */
+.notice_btns {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 버튼 공통 구조 기본기 설정 */
+.notice_btns .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 30px; /* 동글동글하고 세련된 라운딩 */
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+/* 1. 목록 버튼 (차분한 아웃라인 폼) */
+.notice_btns .btn.outline {
+    background: #fff;
+    color: #555;
+    border: 1px solid #cccccc;
+}
+.notice_btns .btn.outline:hover {
+    background: #f8f9fa;
+    color: #222;
+    border-color: #888888;
+}
+
+/* 2. 수정 버튼 (메인 Orange 테마 링크 연동) */
+.notice_btns .btn.edit {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+}
+.notice_btns .btn.edit:hover {
+    background: #e85a2a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+}
+
+/* 3. 삭제 버튼 (위험/경고 피드백 다크그레이 톤) */
+.notice_btns .btn.delete {
+    background: #495057;
+    color: #fff;
+    border: none;
+}
+.notice_btns .btn.delete:hover {
+    background: #343a40;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,639 @@
+@charset "UTF-8";
+
+/* ================= HERO ================= */
+
+.hero{
+    height:286px;
+    /* 이미지 경로 */
+    background-image:url("../images/mainBanner.png");
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:cover;
+    position:relative;
+}
+
+.overlay{
+
+    width:100%;
+    height:100%;
+
+   	background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.95) 0%,
+            rgba(255,255,255,0.65) 35%,
+            rgba(255,255,255,0.15) 60%,
+            rgba(255,255,255,0) 100%
+        );
+
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.heroText{
+	width:1550px;
+	margin:0 auto;
+}
+
+.heroText h1{
+	font-size:42px;
+	line-height:1.3;
+	color:#333;
+	font-weight:700;
+}
+
+.heroText span{
+	color:#d89b54;
+}
+
+.heroText p{
+	margin-top:15px;
+	line-height:1.8;
+	color:#666;
+	font-size:18px;
+
+}
+
+/* ================= SEARCH ================= */
+
+.searchBox{
+	position:absolute;
+	bottom:-30px;
+	left:0;
+	width:100%;
+	display:flex;
+	justify-content:center;
+}
+
+.searchBox form{
+	width:50%;
+	min-width:800px;
+	max-width:1000px;
+	height:65px;
+	background:white;
+	border-radius:999px;
+	overflow:hidden;
+	display:flex;
+	box-shadow:0 5px 20px rgba(0,0,0,0.12);
+}
+
+.searchBox input{
+	flex:1;
+	border:none;
+	outline:none;
+	padding-left:30px;
+	font-size:18px;
+}
+
+.searchBox button{
+    width:80px;
+    border:none;
+    background:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+	width:1550px;
+	margin:80px auto 0;
+}
+
+.sectionHeader{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	margin-bottom:8px;
+}
+
+/* ============더보기 버튼============= */
+.moreBtn {
+    display: inline-block;
+    padding: 9px 18px;
+    border: 0px solid #ff6b35;
+    border-radius: 30px;
+    background: white;
+    color: #ff6b35;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.moreBtn:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+.moreBtn:active {
+    transform: translateY(0);
+}
+
+.moreBtn span {
+	display: inline-block;
+    transition: 0.3s;
+}
+
+.moreBtn:hover span {
+    transform: translateX(5px);
+}
+
+.sectionTitle{
+	font-size:22px;
+	font-weight:bold;
+	margin-bottom:8px;
+	font-weight:700;
+	color:#222;
+}
+
+/* ================= CARD ================= */
+
+.cardContainer{
+	display:flex;
+	gap:35px;
+}
+
+.card{
+	width:500px;
+	background:white;
+	border-radius:15px;
+	overflow:hidden;
+	box-shadow:0 2px 10px rgba(0,0,0,0.08);
+	transition:0.2s;
+}
+
+.card:hover{
+	transform:translateY(-5px);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 💡 여기에 카드를 감싸는 a태그 링크 효과 제거 속성을 추가합니다. */
+.cardLink {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit;        /* 본문 글자색(검은색 계열) 그대로 상속 */
+    display: block;        /* 카드가 깨지지 않고 온전히 블록 영역을 잡도록 설정 */
+}
+
+.cardContainer{
+	display:flex;
+	gap:35px;
+}
+
+.card{
+	width:500px;
+	background:white;
+	border-radius:15px;
+	overflow:hidden;
+	box-shadow:0 2px 10px rgba(0,0,0,0.08);
+	transition:0.2s;
+}
+
+.imgBox{
+    position:relative;
+}
+
+.imgBox img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.cardBody{
+    padding:10px 18px 14px 18px;
+    margin-top:-5px;
+}
+
+.location{
+	position:absolute;
+	left:15px;
+	bottom:10px;
+	background:#e8a052;
+	color:white;
+	padding:6px 14px;
+	border-radius:20px;
+	font-size:13px;
+	font-weight:bold;
+}
+
+.pickBadge{
+	position:absolute;
+	top:12px;
+	left:12px;
+	background:#ff6b35;
+	color:white;
+	font-size:12px;
+	font-weight:bold;
+	padding:6px 12px;
+	border-radius:20px;
+}
+
+.card h3{
+	margin-top:6px;
+	font-weight:600;
+	margin-bottom:8px;
+	color:#333;
+	line-height:1.35;
+}
+
+.cardFooter{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+}
+
+.writer{
+	display:flex;
+	align-items:center;
+	gap:6px;
+	color:#777;
+	font-size:13px;
+}
+
+.info{
+	font-size:13px;
+	color:#666;
+}
+
+
+/* ================= MyPage 부분 ================= */
+
+/* ================= 제목 ================= */
+.mypageWrap{
+    width:1300px;
+    margin:40px auto;
+}
+
+.mypageWrap h1{
+    font-size:36px;
+    margin-bottom:30px;
+}
+/* ================= 본문 ================= */
+.mypageBody{
+    display:flex;
+    gap:30px;
+}
+
+/* ================= 좌측메뉴 ================= */
+.mypageMenu{
+    width:220px;
+
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    padding:20px;
+}
+
+.mypageMenu a{
+    display:block;
+
+    padding:15px 10px;
+
+    text-decoration:none;
+    color:#333;
+
+    border-bottom:1px solid #eee;
+}
+
+/* ================= 우측내용 ================= */
+.mypageContent{
+    flex:1;
+
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    padding:20px;
+
+    min-height:700px;
+}
+
+/* ================= MYPAGE POST ================= */
+
+.postGrid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+}
+
+.postCard{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:12px;
+    overflow:hidden;
+    transition:0.2s;
+}
+
+.postCard:hover{
+    transform:translateY(-3px);
+    box-shadow:0 3px 12px rgba(0,0,0,0.1);
+}
+
+.postImage{
+    width:100%;
+    height:180px;
+    overflow:hidden;
+}
+
+.postImage img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.postContent{
+    padding:15px;
+}
+
+.postTitle{
+    font-size:16px;
+    font-weight:bold;
+    line-height:1.4;
+    min-height:45px;
+    margin-bottom:12px;
+}
+
+.postBottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.postWriter{
+    color:#666;
+}
+
+.postStat{
+    color:#888;
+    font-size:14px;
+}
+
+.paging{
+	width:100%;
+	justify-content:center;
+    display:flex;
+    gap:6px;
+}
+
+.paging a{
+	display:inline-block;
+    min-width:35px;
+    margin:0 5px;
+    padding:8px 12px;
+    text-decoration:none;
+    color:#333;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.paging a:hover{
+    background:#f5f5f5;
+}
+
+.paging .active{
+    background:#333;
+    color:white;
+}
+
+/* ================= MY PROFILE ================= */
+
+.profileWrap{
+    width:700px;
+    margin:40px auto;
+}
+
+.profileWrap h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#333;
+}
+
+.profileTable{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.profileTable th{
+    width:180px;
+
+    padding:18px;
+
+    background:#f8f8f8;
+    border:1px solid #ddd;
+
+    text-align:left;
+}
+
+.profileTable td{
+    padding:18px;
+    border:1px solid #ddd;
+}
+
+.profileTable input[type=text],
+.profileTable input[type=password],
+.profileTable input[type=email],
+.profileTable select{
+
+    width:100%;
+    height:42px;
+
+    border:1px solid #ccc;
+    border-radius:6px;
+
+    padding:0 12px;
+    
+    box-sizing: border-box;
+}
+
+/* my profile - nickname */
+.nicknameArea{
+    display:flex;
+    gap:10px;
+}
+
+.nicknameArea input{
+    flex:1;
+}
+
+.nicknameArea button{
+    width:100px;
+    border:none;
+    border-radius:6px;
+    background:#333;
+    color:white;
+    cursor:pointer;
+}
+
+.checkMsg{
+    margin-top:8px;
+    font-size:13px;
+}
+
+/* my profile - password */
+.checkPw{
+    margin-top:8px;
+    font-size:13px;
+}
+
+
+/* my profile - address */
+.addressTop{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.addressTop input{
+    flex:1;
+}
+
+.addressTop button{
+    width:100px;
+    border:none;
+    border-radius:6px;
+    background:#333;
+    color:white;
+    cursor:pointer;
+}
+
+#address1{
+    width:100%;
+    margin-bottom:10px;
+}
+
+#address2{
+    width:100%;
+}
+
+/* myprofile - 수정 / 탈퇴버튼 */
+
+.profileBtnArea{
+    margin-top:30px;
+    text-align:center;
+}
+
+.profileBtn{
+
+    width:180px;
+    height:50px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#e8a052;
+    color:white;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.withdrawBtn{
+
+    width:180px;
+    height:50px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#d9534f;
+    color:white;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* myprofile - 탈퇴 : withdrawCheck */
+.withdrawWrap{
+
+    height:650px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.withdrawWrap h2{
+
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.withdrawText{
+
+    color:#666;
+    margin-bottom:30px;
+}
+
+.withdrawInput{
+
+    width:350px;
+    height:45px;
+
+    border:1px solid #ccc;
+    border-radius:6px;
+
+    padding:0 15px;
+
+    margin-bottom:25px;
+}
+
+.withdrawBtnFinalCheck{
+
+    width:180px;
+    height:50px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#d9534f;
+    color:white;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.profileBtn:hover{
+    opacity:0.9;
+}
+
+/*   맛집리뷰   */
+.search-area{
+    margin-top:35px;
+
+    display:flex;
+
+    gap:10px;
+}
+
+/* myPage 의 검색글 */
+.postCardLink{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+.postCard{
+    cursor:pointer;
+}
+
+/* mypage - 작성된 글이 없을 시 목록대신 보이는 부분 */
+#noPostMassage{
+    width:100%;
+    min-height:300px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:20px;
+    font-weight:600;
+    color:#888;
+}

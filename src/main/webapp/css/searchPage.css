@@ -1,0 +1,246 @@
+@charset "UTF-8";
+/*************** 검색창 ***************/
+.searchTop{
+    background:white;
+    padding:25px 0;
+    border-bottom:1px solid #eee;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.searchForm{
+    width:50%;
+    min-width:800px;
+    max-width:1000px;
+    height:65px;
+
+    background:white;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.12);
+}
+
+.searchForm input{
+    flex:1;
+
+    height:100%;
+
+    border:none;
+    outline:none;
+
+    padding-left:30px;
+
+    font-size:18px;
+}
+
+.searchForm button{
+    width:80px;
+    height:100%;
+
+    border:none;
+    background:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+}
+
+/*************** 전체영역 ***************/
+.searchWrap{
+    width:1200px;
+    margin:40px auto;
+}
+
+/*************** 탭 ***************/
+.searchTab{
+    display:flex;
+    gap:10px;
+    margin:25px 0 40px;
+}
+
+.searchTab a{
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    color:#666;
+
+    background:#f3f3f3;
+}
+
+.searchTab .active{
+
+    background:#e8a052;
+    color:white;
+}
+
+/*************** 결과카드 ***************/
+
+.resultSection{
+    margin-bottom:60px;
+}
+
+.restaurantCard,
+.reviewCard{
+display:flex;
+    gap:20px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+
+    text-decoration:none;
+    color:inherit;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/*************** 리뷰 정보 영역 제어 ***************/
+.reviewCard .reviewInfo {
+    flex: 1;             /* 남은 가로 공간을 꽉 채우도록 설정 */
+    display: flex;
+    flex-direction: column; /* 자식 요소들(h4, p, .meta)을 세로로 정렬 */
+}
+
+.reviewCard .meta {
+    margin-top: auto;    /* 위쪽 여백을 자동으로 꽉 채워 .meta를 맨 아래로 밀어냄 */
+    
+    /* (선택) 닉네임 디자인을 조금 더 부드럽게 보정 */
+    font-size: 14px;
+    color: #888;
+}
+
+.restaurantCard:hover,
+.reviewCard:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.12);
+}
+
+.star {
+    color: #ffb400;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/*************** 썸네일 ***************/
+.restaurantCard img,
+.reviewCard img{
+
+    width:220px;
+    height:150px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+}
+
+/*************** 태그 ***************/
+.tagArea{
+    margin-top:10px;
+}
+
+.tagArea span{
+
+    display:inline-block;
+
+    padding:4px 12px;
+
+    margin-right:6px;
+
+    border-radius:20px;
+
+    background:#fff4e8;
+
+    color:#d89b54;
+
+    font-size:13px;
+}
+
+/*************** 평가단픽 ***************/
+.pickBadge{
+
+    display:inline-block;
+
+    background:#ff6b35;
+
+    color:white;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+/*************** 카테고리 더보기 버튼 ***************/
+.categoryMoreBtn{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    height:55px;
+
+    margin-top:15px;
+
+    background:white;
+
+    border:1px solid #eee;
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#666;
+    font-weight:600;
+
+    transition:all .25s;
+}
+
+.categoryMoreBtn:hover{
+
+    background:#fff4e8;
+
+    border-color:#e8a052;
+
+    color:#e8a052;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 4px 12px rgba(232,160,82,.15);
+}
+
+.categoryMoreBtn span{
+    margin-left:10px;
+    transition:.25s;
+}
+
+.categoryMoreBtn:hover span{
+    transform:translateX(5px);
+}

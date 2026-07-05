@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+.commentTitle{
+    margin-bottom:20px;
+    font-size:24px;
+    color:#333;
+}
+
+.commentTable{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+}
+
+.commentTable a,
+.commentTable a:visited,
+.commentTable a:hover,
+.commentTable a:active{
+
+    text-decoration:none;
+    color:inherit;
+}
+
+.commentTable th{
+    background:#f8f8f8;
+
+    padding:10px 8px;
+
+    border-bottom:2px solid #ddd;
+
+    text-align:center;
+}
+
+.commentTable td{
+    padding:10px 8px;
+    
+    border-bottom:1px solid #eee;
+
+    text-align:center;
+}
+
+.commentTable tr:hover{
+    background:#fafafa;
+}
+
+.commentTable th:nth-child(1),
+.commentTable td:nth-child(1){
+    width:60px;
+}
+
+.commentTable th:nth-child(2),
+.commentTable td:nth-child(2){
+    width:250px;
+}
+
+.commentTable th:nth-child(3),
+.commentTable td:nth-child(3){
+    width:350px;
+}
+
+.commentTable td:nth-child(2), 
+.commentTable td:nth-child(3){
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+
+    text-align:left;
+}
+
+.commentTable th:nth-child(4),
+.commentTable td:nth-child(4){
+    width:120px;
+}
+
+.commentTable th:nth-child(5),
+.commentTable td:nth-child(5){
+    width:150px;
+}
+
+/* 수정버튼 */
+.commentEditBtn{
+
+    width:50px;
+    height:28px;
+    font-size:12px;
+
+    border:none;
+    border-radius:5px;
+
+    background:#e8a052;
+    color:white;
+
+    cursor:pointer;
+}
+
+.commentEditBtn:hover{
+	opacity:0.9;
+}
+
+/* 삭제버튼 */
+.commentDeleteBtn{
+
+    width:50px;
+    height:28px;
+    font-size:12px;
+
+    border:none;
+    border-radius:5px;
+
+    background:#d9534f;
+    color:white;
+
+    cursor:pointer;
+}
+
+.commentDeleteBtn:hover{
+	opacity:0.9;
+}

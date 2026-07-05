@@ -1,0 +1,619 @@
+/* =========================
+   1. 전체 기본 초기화 & 배경
+========================= */
+.contentWrap {
+    max-width: 1200px;
+    width: 92%;
+    margin: 40px auto;
+    padding: 0; 
+}
+
+/* =========================
+   2. 카드 공통 스타일
+========================= */
+.card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   3. 1층 레이아웃 (높이 동기화 설정)
+========================= */
+.topArea {
+    display: flex;
+    gap: 25px;
+    /* 💡 [수정] 우측 상세정보 높이에 맞춰 좌측 이미지 블록이 늘어나도록 stretch 변경 */
+    align-items: flex-start; 
+}
+
+/* =======================================================
+   4. 이미지 영역 (왼쪽 - 우측 높이 100% 완벽 동기화 완료)
+======================================================= */
+.imageArea {
+    flex: 5;            
+    min-width: 450px;   
+    display: flex;      
+    flex-direction: row; 
+    gap: 8px;           
+    padding: 0;         
+    background: #fff;       
+    border-radius: 18px;    
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    height: auto; /* 💡 자바스크립트가 높이를 넣어줄 예정이므로 auto 유지 */
+}
+
+.imageArea:hover {
+    /* 💡 우측 카드와 마우스 오버 효과도 통일 처리 */
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* 💡 썸네일만 존재할 때 너비/높이를 혼합형 썸네일 크기(비율 1.2분량)로 제한 */
+.imageArea.only-thumb-area .thumbnailBox {
+    flex: 1; 
+    width: 100%;       
+    height: 100%;       
+    border-radius: 18px; /* 💡 부모 라운딩값과 일치 */
+}
+
+/* 대표 이미지 (기본형 스타일 유지) */
+.thumbnailBox {
+    flex: 1.2;          
+    height: 100%;       /* 💡 이제 .imageArea가 흰색 카드로 늘어난 만큼 100% 꽉 찹니다 */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.thumbnailImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 서브 이미지 */
+.smallImages {
+    flex: 1;            
+    display: flex;
+    flex-direction: column; 
+    gap: 8px;           
+    height: 100%;       /* 💡 우측 카드 높이만큼 100% 꽉 참 */
+}
+
+/* 개별 작은 이미지 감싸는 칸 */
+.subImgContainer {
+    flex: 1;            
+    height: calc(50% - 4px); 
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.smallImages img {
+    width: 100% !important; 
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+}
+
+/* '+ 더보기' 오버레이 효과 */
+/*
+.moreEffect .moreOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+*/
+
+/* =========================
+   5. 정보 영역 (오른쪽 - 높이 좌측 이미지에 100% 동기화)
+========================= */
+.shopInfo {
+    flex: 5;            
+    height: fit-content; /* 💡 [핵심] 콘텐츠의 순수 높이에 딱 맞게 카드를 밀착 */
+    padding: 30px;      
+    min-width: 0;
+    display: block;      /* 💡 [수정] 자식들을 강제로 늘리던 flex 구조를 일반 블록 구조로 변경하여 상단 밀착 */
+    background: #fff;       
+    border-radius: 18px;    
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* 💡 [선택사항] 오른쪽 정보 박스 스크롤바를 조금 더 슬림하고 깔끔하게 다듬는 스타일 */
+.shopInfo::-webkit-scrollbar {
+    width: 6px;
+}
+.shopInfo::-webkit-scrollbar-thumb {
+    background: #e9ecef;
+    border-radius: 4px;
+}
+.shopInfo::-webkit-scrollbar-thumb:hover {
+    background: #dee2e6;
+}
+
+/* 최상단 대형 가게명 영역 */
+.shopHeader {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    padding-bottom: 18px;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.shopName {
+    font-size: 28px;      
+    font-weight: bold;
+    color: #111;
+    letter-spacing: -0.5px;
+    flex: 1;                        
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 좋아요, 즐겨찾기 버튼 그룹 */
+.shopActions {
+    display: flex;
+    gap: 12px;                      
+    align-items: center;
+    margin-left: 15px;
+}
+
+/* 공통 버튼 스타일 */
+.actionBtn {
+    background: #f8f9fa;            
+    border: 1px solid #eaeaea;
+    border-radius: 50px;            
+    padding: 8px 14px;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;                       
+    transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+    background: #f1f3f5;
+    transform: scale(1.05);         
+}
+
+
+/* 좋아요 활성화 (빨간색) */
+.likeBtn.filled {
+    background: #fff0f1;
+    border-color: #ffb3b6;
+    color: #ff5a5f;
+}
+.likeBtn.filled i {
+    font-weight: 900; 
+}
+
+/* 즐겨찾기 활성화 (노란색) */
+.favBtn.filled {
+    background: #fff9db;
+    border-color: #ffe066;
+    color: #fab005;
+}
+.favBtn.filled i {
+    font-weight: 900; 
+}
+
+/* 하단 상세 정보 본문 패널 */
+.shopBody {
+    margin-top: 20px;     
+    display: block;      /* 내부 요소들이 쓸데없이 벌어지는 것 방지 */
+}
+
+.subTitle {
+    font-size: 15px;      
+    font-weight: bold;
+    color: #777;          
+    margin-bottom: 15px;
+}
+
+/* 테이블 레이아웃 */
+.infoTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.infoTable tr {
+    border-bottom: 1px solid #fcfcfc; 
+}
+
+.infoTable tr:last-child {
+    border-bottom: none; 
+}
+
+/* 테이블 왼쪽 항목명 (우편번호, 주소 등) */
+.infoTable th {
+    text-align: left;
+    vertical-align: middle; /* 💡 [수정] 태그 텍스트와 우측 실제 태그 높이를 정중앙 정렬하기 위해 변경 */
+    width: 85px;         
+    padding: 10px 0;     
+    font-size: 14px;
+    color: #888;         
+    font-weight: 500;
+}
+
+/* 테이블 오른쪽 실제 데이터 */
+.infoTable td {
+    padding: 10px 0 10px 5px;
+    font-size: 14px;     
+    color: #333;         
+    line-height: 1.5;
+    vertical-align: middle; /* 💡 [수정] 우측 셀 데이터도 전부 수직 중앙 정렬 처리 */
+}
+
+/* =========================
+   6. 상세 설명 영역 (하단 가로 전체 박스)
+========================= */
+.contentArea {
+    margin-top: 25px;       
+    width: 100%;            
+    padding: 26px;          
+    background: #fff;
+    border-radius: 18px;    /* 💡 스타일 통일성을 위해 라운드 추가 */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* 💡 그림자 통일 */
+    min-width: 0;           
+}
+
+.contentArea h3 {
+    margin: 0 0 20px 0;     
+    font-size: 22px;        
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f1f1f1; 
+}
+
+.contentText {
+    padding: 10px 0;        
+    font-size: 14px;        
+    line-height: 1.6;       
+    color: #333;
+    word-break: break-all;  
+}
+
+/* 태그 정렬 레이아웃 균형 조정 */
+.tagListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center; /* 💡 [수정] 내부 태그 알약들의 중앙 배치 정렬 */
+}
+
+.shopTag {
+    background-color: #f1f3f5;
+    color: #495057;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+    display: inline-flex;
+    align-items: center; /* 💡 [수정] 내부 # 텍스트 흔들림 방지 */
+}
+
+/* =========================
+   7. 댓글 영역 (하단 전체 흰색 박스 및 비로그인 최적화)
+========================= */
+.commentSection {
+    margin-top: 50px;
+    /* 💡 [수정] 댓글 영역 전체를 흰색 독립 박스로 감싸 가독성 강화 */
+    background: #fff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* 댓글 타이틀 디자인 추가 (상세 설명 영역과 통일) */
+.commentSection h3.sectionTitle {
+    margin: 0 0 20px 0;     
+    font-size: 22px;        
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.commentItem,
+.replyItem {
+    padding: 15px 0; /* 💡 좌우 패딩을 0으로 만들어 흰 박스 내부 라인 정렬 */
+    border-bottom: 1px solid #eee;
+}
+
+.replyItem {
+    padding-left: 40px; /* 💡 대댓글 인덴트 처리 */
+    background: #fcfcfc;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.commentHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.commentInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.nickname {
+    font-weight: bold;
+}
+
+.rating {
+    margin-top: 2px;
+}
+
+.starImg {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+}
+
+/* 신고버튼 */
+.reportBtn {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #495057;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.reportBtn:hover {
+    background: #6c757d;
+}
+
+.reportedBtn {
+    background: #999;
+    cursor: not-allowed;
+}
+
+/* 답글(대댓글)작성 */
+.replyForm {
+    margin-left: 40px;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: stretch;
+}
+
+.replyForm textarea {
+    flex: 1;
+    height: 80px;
+    resize: none;
+    font-size: 16px;
+}
+
+.replyForm button {
+    width: 120px;
+}
+
+.commentDate {
+    margin-left: auto;
+    color: #999;
+    font-size: 13px;
+}
+
+.commentBtn {
+    display: flex;
+    gap: 5px;
+}
+
+/* 댓글 내용 */
+.editForm {
+    margin-top: 10px;
+}
+
+.editForm form {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.editForm textarea {
+    flex: 1;
+    height: 100px;
+    font-size: 16px;
+}
+
+.editForm button {
+    width: 100px;
+}
+
+.commentContent {
+    line-height: 1.6;
+}
+
+.commentContent_none {
+    line-height: 1.6;
+    text-align: center;
+    color: #999;
+    padding: 20px 0;
+}
+
+.commentWrite {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.ratingArea input[type="radio"] {
+    margin-right: 6px;
+} 
+
+.ratingArea label {
+    display: inline-flex;
+    width: 90px;   
+    align-items: center;
+}
+
+/* 💡 [수정/추가] 비로그인 상태 전용 폼 레이아웃 제어 */
+.commentWrite.not-logged-in .ratingArea {
+    display: none; /* 💡 비로그인 시 별표 라디오 영역 완전 히든 처리 */
+}
+
+.writeArea {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.writeArea textarea {
+    flex: 1;
+    height: 100px;
+    resize: none;
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+}
+
+/* 💡 [수정] 비로그인 상태 안내 텍스트 중앙 완전 정렬 */
+.writeArea textarea::placeholder {
+    text-align: center;
+    line-height: 70px; /* textarea의 높이 부근으로 맞춰 세로 중앙 정렬 유도 */
+}
+
+/* 💡 만약 placeholder가 아니라 내부 div text로 처리했을 경우를 대비한 가이드 정렬 클래스 */
+.loginNagMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 가로 중앙 정렬 */
+    width: 100%;
+    height: 65px;          
+    background: #f8f9fa;     /* 연한 회색 배경 스타일링 */
+    border: 1px dashed #dee2e6;
+    border-radius: 8px;
+    color: #868e96;
+    font-size: 15px;
+}
+
+.paging {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.paging a {
+    display: inline-block;
+    min-width: 35px;
+    margin: 0 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.paging a:hover {
+    background: #f5f5f5;
+}
+
+.paging .active {
+    background: #333;
+    color: white;
+}
+
+/* ===================================================
+   공통 버튼 및 하단 제어 스크립트 스타일 유지
+=================================================== */
+.commentBtn button,
+.replyForm button,
+.editForm button,
+.writeBtn {
+    height: 36px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.commentBtn button:hover,
+.replyForm button:hover,
+.editForm button:hover,
+.writeBtn:hover {
+    opacity: 0.9;
+}
+
+.writeBtn {
+    width: 110px;
+    background: #e8a052;
+    color: white;
+    height: auto;
+    align-self: stretch;
+}
+
+.replyBtn { background: #6c757d; color: white; }
+.editBtn { background: #4a90e2; color: white; }
+.deleteBtn { background: #d9534f; color: white; }
+
+.replyForm button {
+    background: #6c757d;
+    color: white;
+    align-self: stretch;
+}
+
+.editForm button {
+    background: #4a90e2;
+    color: white;
+    align-self: stretch;
+}
+
+/* 하단 목록/수정/삭제 버튼 컨트롤 */
+.btnArea {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btnArea input[type="button"] {
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btnArea input[type="button"]:nth-child(1) { background: #6c757d; color: #fff; }
+.btnArea input[type="button"]:nth-child(1):hover { background: #5a6268; }
+.btnArea input[type="button"]:nth-child(2) { background: #ff5a5f; color: #fff; }
+.btnArea input[type="button"]:nth-child(2):hover { background: #e0484d; }
+.btnArea input[type="button"]:nth-child(3) { background: #e9ecef; color: #495057; }
+.btnArea input[type="button"]:nth-child(3):hover { background: #dee2e6; }

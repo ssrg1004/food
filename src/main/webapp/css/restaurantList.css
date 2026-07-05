@@ -1,0 +1,553 @@
+@charset "UTF-8";
+
+/* 전체 */
+.restaurantContainer{
+	width:1200px;
+	margin:0 auto;
+	padding-top:30px;
+}
+
+/* 검색 */
+.searchArea{
+    width:850px;
+    margin:0 auto;
+
+    padding:25px 0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.searchForm{
+    width:100%;
+    height:55px;
+
+    background:white;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+
+    border:1px solid #ddd;
+}
+
+.searchForm input{
+    flex:1;
+    height:100%;
+
+    border:none;
+    outline:none;
+
+    padding-left:25px;
+
+    font-size:16px;
+
+    /* ❗ 중요: line-height 금지 */
+}
+
+.searchForm button{
+    width:60px;
+    height:100%;
+
+    border:none;
+    background:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* 필터버튼 */
+.filterBtn{
+
+	width:60px;
+
+	border:none;
+
+	background:white;
+
+	cursor:pointer;
+
+	border-right:1px solid #eee;
+}
+
+.filterBtn img{
+
+	width:24px;
+	height:24px;
+}
+
+/* 태그 */
+/* 카드 내부 태그 레이아웃 */
+.tagRow {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 6px;        /* 태그 사이 조밀한 간격 */
+    margin-top: 8px; /* 조회수 라인과 확실한 구별을 위해 여백 확대 */
+    padding-top: 4px;
+}
+
+/* 2. 감성적인 맛집 해시태그 디자인 */
+.cardTag {
+    background-color: #fff0f6; /* 은은하고 부드러운 핑크백그라운드 (맛집 감성) */
+    color: #ff4d4f;           /* 포인트가 되는 예쁜 다홍색 글씨 */
+    padding: 4px 10px;         /* 위아래, 좌우 여백을 줘서 통통하고 입체감 있게 */
+    border-radius: 20px;       /* 알약 모양처럼 완전히 둥글게 깎아서 트렌디하게 */
+    font-size: 0.75rem;        /* 가독성 좋은 아담한 크기 */
+    font-weight: 600;          /* 글씨를 살짝 두껍게 해서 가독성 업 */
+    border: 1px solid #ffa39e; /* 배경보다 살짝 짙은 테두리로 깔끔하게 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02); /* 미세한 그림자 효과 */
+    transition: all 0.2s ease;
+}
+
+/* 마우스 올렸을 때 살짝 반응하는 효과 (선택사항) */
+.cardTag:hover {
+    background-color: #ff4d4f;
+    color: #fff;
+}
+
+/* 3. 태그 없을 때 잔잔한 처리 */
+.noTag {
+    color: #c1c1c1;
+    font-size: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+/* 필터모달 */
+/*
+#filterModal{
+
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9999;
+}
+
+.modalContent{
+
+    width:500px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+.tagArea{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+}
+
+.tagArea button{
+
+    border:1px solid #ddd;
+
+    border-radius:20px;
+
+    background:white;
+
+    padding:8px 15px;
+
+    cursor:pointer;
+}
+
+.tagArea button.active{
+
+    background:#ff7a00;
+
+    color:white;
+}
+
+.modalBtnArea{
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+}
+*/
+
+/* 맛집리스트 필터링 버튼 */
+.sortArea{
+
+    width:850px;
+
+    margin:25px auto;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+}
+
+.sortBtn{
+
+    padding:6px 14px;
+
+    border:1px solid #ddd;
+
+    border-radius:20px;
+
+    text-decoration:none;
+
+    color:#555;
+
+    font-size:13px;
+
+    background:white;
+
+    transition:.2s;
+}
+
+.sortBtn:hover{
+
+    background:#ff7a00;
+
+    color:white;
+}
+
+.sortBtn.active{
+
+    background:#ff7a00;
+
+    color:white;
+
+    border-color:#ff7a00;
+}
+
+/* 태그 */
+.tagArea{
+
+    width:850px;
+
+    margin:10px auto 0;
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+.tagArea a{
+	
+	
+	width:90px;
+    height:38px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border:1px solid #ddd;
+
+    border-radius:20px;
+
+    background:white;
+
+    text-decoration:none;
+
+    color:#444;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.2s;
+}
+
+.tagArea a:hover{
+	
+	background:#ff7a00;
+    color:white;
+}
+
+.tagArea a.active{
+	
+    background:#ff7a00;
+    color:white;
+    border-color:#ff7a00;
+}
+
+/* 맛집추가버튼(관리자) */
+.addRestaurantBtn{
+
+    width:850px;
+
+    margin:15px auto 0;
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+.addRestaurantBtn a{
+	width:100%;
+    height:38px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border:1px solid #ddd;
+
+    border-radius:20px;
+
+    background:#ff6b35;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:15px;
+    font-weight:600;
+
+    transition:.2s;
+}
+
+.addRestaurantBtn a:hover{
+	
+	background: #e85a2a;
+    color:white;
+}
+
+.addRestaurantBtn.active{
+	
+    background:#e85a2a;
+    color:white;
+    border-color:#e85a2a;
+}
+
+
+
+
+/* 맛집카드 */
+/* 맛집 카드 영역 정렬 */
+.restaurantArea {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* 카드 전체 사이즈 고정 유지 */
+.restaurantCard {
+    width: 280px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.restaurantCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 이미지 영역 60% 유지 */
+.cardImage {
+    height: 60%;
+    width: 100%;
+}
+.cardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 하단 콘텐츠 영역 (남은 40% 활용) */
+.cardContent {
+    height: 40%; 
+    padding: 10px 15px 12px 15px; /* 💡 아래쪽(bottom) 여백을 살짝 늘려 안정감 부여 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    box-sizing: border-box;
+}
+
+/* 제목과 우측 스탯 정렬 */
+.titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.storeName {
+    font-size: 15px;
+    font-weight: bold;
+    max-width: 120px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 2px; /* 아이콘들과 높이 밸런스 맞추기 */
+}
+
+/* 우측 스탯 묶음 (오른쪽 끝 정렬) */
+.rightStats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 오른쪽 정렬로 북마크 아래에 조회수가 오도록 함 */
+    gap: 4px;
+}
+
+/* 첫 번째 줄: 좋아요 & 북마크 가로 정렬 */
+.iconRow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.count {
+    font-size: 12px;
+    color: #666;
+}
+
+.likeBtn, .bookmarkBtn {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .15s;
+}
+.likeBtn img, .bookmarkBtn img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+.likeBtn:hover, .bookmarkBtn:hover {
+    transform: scale(1.1);
+}
+
+/* 두 번째 줄: 북마크 아래 조회수 영역 */
+.subInfoRow {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2px; /* 북마크 숫자와 위치를 대략적으로 맞추기 위한 미세 조정 */
+}
+
+.viewCount {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* 아이콘과 숫자 간격 */
+}
+
+/* 조회수 아이콘 스타일 (폰트어썸과 이미지 모두 대응) */
+.viewIcon {
+    font-size: 13px; /* 폰트어썸 크기 */
+    width: 14px;    /* 이미지일 때의 크기 */
+    height: 14px;
+    color: #999;    /* 은은한 회색조로 아이콘 튀지 않게 처리 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+
+/* ------------------ 태그 디자인 ------------------ */
+.tagRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;        
+    margin-top: auto; 
+    overflow: hidden; 
+    /* 💡 max-height를 기존 24px -> 32px로 늘려 태그 하단이 잘리는 현상 완전 방지 */
+    max-height: 32px; 
+    /* 💡 글자 아래쪽 꼬리(g, j, p, y 등)나 테두리가 잘리지 않도록 아래 여백 살짝 추가 */
+    padding-bottom: 2px; 
+}
+
+/* 3. 태그 개별 디자인 */
+.cardTag {
+    background-color: #fff0f6; 
+    color: #ff4d4f;           
+    padding: 2px 8px; /* 💡 위아래 패딩을 3px -> 2px로 살짝 줄여 내부 공간 확보 */
+    border-radius: 20px;       
+    font-size: 0.7rem;        
+    font-weight: 600;          
+    border: 1px solid #ffa39e; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02); 
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    
+    /* 💡 글자가 수직 중앙에 예쁘게 위치하도록 가이드 제공 */
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2; 
+}
+
+.cardTag:hover {
+    background-color: #ff4d4f;
+    color: #fff;
+}
+
+.paging{
+	width:100%;
+	justify-content:center;
+    display:flex;
+    gap:6px;
+}
+
+.paging a{
+	display:inline-block;
+    min-width:35px;
+    margin:0 5px;
+    padding:8px 12px;
+    text-decoration:none;
+    color:#333;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.paging a:hover{
+    background:#f5f5f5;
+}
+
+.paging .active{
+    background:#333;
+    color:white;
+}
+
+.currentPage{
+
+	font-weight:bold;
+
+	color:#ff7a00 !important;
+}

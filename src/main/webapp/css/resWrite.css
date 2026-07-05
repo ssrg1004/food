@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/* 전체 영역 */
+.writeWrap{
+    width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 제목 */
+.writeWrap h1{
+    margin-bottom: 30px;
+    padding-left: 10px;
+    border-left: 5px solid #ff6b6b;
+    color: #2c3e50;
+}
+
+/* 공통 영역 */
+.formGroup{
+    margin-bottom: 25px;
+}
+
+/* 라벨 */
+.formGroup label{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4e525a;
+}
+
+/* 텍스트 입력 */
+input[type="text"]{
+    width: 100%;
+    height: 45px;
+    padding: 0 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* 포커스 */
+input[type="text"]:focus,
+textarea:focus{
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255,107,107,0.15);
+}
+
+/* 파일 */
+input[type="file"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #f8f9fa;
+}
+
+/* textarea */
+textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 14px;
+}
+
+/* 태그 영역 */
+.tagArea{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 태그 버튼 */
+.tagBtn{
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: #555;
+}
+
+/* 태그 hover */
+.tagBtn:hover{
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+/* 선택된 태그 */
+.tagBtn.active{
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 가게정보 제목 */
+h3{
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* 가게정보 테이블 */
+.infoShop{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: #fff;
+}
+
+.infoShop th{
+    width: 150px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.infoShop td{
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.infoShop td input{
+    width: 100%;
+}
+
+/* 버튼 영역 */
+.btnArea{
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+/* 버튼 */
+.btnArea input{
+    width: 120px;
+    height: 45px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+/* 취소 */
+.btnArea input[type="button"]{
+    background: #e2e8f0;
+    color: #4a5568;
+}
+
+.btnArea input[type="button"]:hover{
+    background: #cbd5e1;
+}
+
+/* 등록 */
+.btnArea input[type="submit"]{
+    background: #2c3e50;
+    color: #fff;
+}
+
+.btnArea input[type="submit"]:hover{
+    background: #1a252f;
+}

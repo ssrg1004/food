@@ -1,0 +1,353 @@
+@charset "UTF-8";
+
+/* 전체 컨테이너 (기존 restaurantContainer와 통일감 유지) */
+.detailContainer {
+    width: 850px; /* 검색창/태그 영역의 너비인 850px에 맞춰 안정감 있게 설정 */
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: white;
+}
+
+/* 제목 스타일 */
+.detailContainer h2 {
+    font-size: 26px;
+    color: #222;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* 작성자 / 지역 / 날짜 (상단 정보창) */
+.infoTop {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: #555;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 조회수 / 상태 바 */
+.statusBar {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #888;
+    padding: 12px 0;
+    margin-bottom: 25px;
+}
+
+.statusBar span {
+    font-weight: 600;
+    color: #ff7a00; /* 포인트 컬러 적용 */
+}
+
+/* 이미지 영역 (맛집 카드의 둥근 모서리와 그림자 스타일 적용) */
+.imageArea {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.imageArea img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* 본문 내용 영역 */
+.contentArea {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    min-height: 200px;
+    padding: 20px 10px;
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    margin-bottom: 40px;
+    white-space: pre-wrap; /* 줄바꿈 유지 */
+}
+
+/* 하단 버튼 영역 */
+.btnArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 공통 버튼 스타일 (기존 sortBtn, tagArea의 둥근 라운딩 형태 계승) */
+.btnArea button, 
+.btnArea a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    padding: 0 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: white;
+    color: #444;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+/* 일반 버튼 호버 효과 */
+.btnArea button:hover,
+.btnArea a:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+}
+
+/* 목록 버튼 스타일 (기존 addRestaurantBtn 처럼 오렌지/코랄 포인트 컬러 적용) */
+.btnArea a[href="reviewerPostList.jsp"] {
+    background: #ff6b35;
+    color: white;
+    border-color: #ff6b35;
+}
+
+.btnArea a[href="reviewerPostList.jsp"]:hover {
+    background: #e85a2a;
+    border-color: #e85a2a;
+}
+
+/* ==========================================================================
+   맛집평가단 리스트 페이지 확장 스타일 (reviewerPostList.jsp용)
+   ========================================================================== */
+
+/* [추가] 카드들을 감싸는 부모 영역을 3열 고정 그리드로 설정 */
+.restaurantArea {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 무조건 한 줄에 3개씩 배분 (1:1:1 비율) */
+    gap: 25px;                             /* 카드와 카드 사이의 상하좌우 여백 */
+    width: 850px;                          /* 다른 컨테이너들과 통일감 있게 850px 고정 */
+    margin: 0 auto 30px auto;              /* 중앙 정렬 및 하단 마진 */
+}
+
+/* 맛집 카드 내 글자 요소들 정렬 */
+.writerRow, .infoRow, .dateRow {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.writerRow {
+    font-weight: 600;
+    color: #444;
+}
+
+.infoRow {
+    font-size: 12px;
+    color: #888;
+}
+
+.dateRow {
+    font-size: 11px;
+    color: #aaa;
+    text-align: right;
+}
+
+/* 카드 높이 자동 조절 (내용이 많아졌으므로 기존 260px에서 변경 혹은 유연하게 처리) */
+.restaurantCard {
+    height: auto !important;
+    min-height: 320px;
+    padding-bottom: 15px;
+}
+
+/* 페이징 컨테이너 마진 확보 */
+.paging{
+	width:100%;
+	justify-content:center;
+    display:flex;
+    gap:6px;
+}
+
+.paging a{
+	display:inline-block;
+    min-width:35px;
+    margin:0 5px;
+    padding:8px 12px;
+    text-decoration:none;
+    color:#333;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.paging a:hover{
+    background:#f5f5f5;
+}
+
+.paging .active{
+    background:#333;
+    color:white;
+}
+
+/* 현재 페이지 번호(span)에도 <a> 태그와 동일한 상자 형태 및 테두리 부여 */
+.paging .current {
+    display: inline-block;
+    min-width: 35px;
+    margin: 0 5px;
+    padding: 8px 12px;
+    text-align: center;
+    border: 1px solid #ff7a00; /* 테두리를 포인트 색상인 오렌지로 변경 */
+    border-radius: 6px;
+    background: #ff7a00;       /* 안쪽 배경도 오렌지로 채우기 */
+    color: white !important;   /* 글자색은 흰색으로 */
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   맛집평가단 등록/수정 폼 페이지 스타일 (reviewerPostUpdate.jsp용)
+   ========================================================================== */
+
+/* 폼 전체 컨테이너 (상세 페이지 너비와 통일) */
+.formContainer {
+    width: 850px;
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+
+/* 폼 제목 */
+.formContainer h2 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* 입력 요소 공통 스타일 (인풋창, 텍스트에어리어) */
+.formContainer input[type="text"],
+.formContainer textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color .2s;
+}
+
+/* 인풋/텍스트에어리어 포커스 시 오렌지색 테두리 효과 */
+.formContainer input[type="text"]:focus,
+.formContainer textarea:focus {
+    border-color: #ff7a00;
+}
+
+/* 본문 입력창 높이 및 크기 조절 방지 */
+.formContainer textarea {
+    height: 250px;
+    resize: none;
+    line-height: 1.6;
+}
+
+/* 서브밋 버튼 (기존 addRestaurantBtn의 오렌지/코랄 컬러 계승) */
+.formContainer button[type="submit"] {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 25px;
+    background: #ff6b35;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+    margin-top: 10px;
+}
+
+.formContainer button[type="submit"]:hover {
+    background: #e85a2a;
+}
+
+/* ==========================================================================
+   맛집평가단 글 작성 페이지 전용 스타일 (reviewerPostWrite.jsp용)
+   ========================================================================== */
+
+/* 파일 업로드 인풋 스타일 조정 */
+.formContainer input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px dashed #ddd; /* 파일 첨부는 점선으로 구분감 주기 */
+    border-radius: 6px;
+    background: #fafafa;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: #666;
+}
+
+.formContainer input[type="file"]:focus {
+    border-color: #ff7a00;
+    outline: none;
+}
+
+/* ==========================================================================
+   맛집평가단 삭제 페이지 전용 스타일
+   ========================================================================== */
+.deleteContainer {
+    width: 450px;
+    margin: 100px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.deleteContainer h2 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.deleteContainer p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.btnGroup {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-delete-action {
+    background: #e74c3c !important; /* 삭제는 강렬한 레드 포인트 */
+    color: white !important;
+    border: none !important;
+    padding: 10px 25px !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+}
+
+.btn-cancel-action {
+    background: #f5f5f5 !important;
+    color: #555 !important;
+    border: 1px solid #ddd !important;
+    padding: 10px 25px !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+}
+
+.btn-delete-action:hover { background: #c0392b !important; }
+.btn-cancel-action:hover { background: #eee !important; }

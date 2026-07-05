@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+header{
+	position:relative;
+	
+    height:80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 40px;
+
+    background:white;
+    border-bottom:1px solid #eee;
+}
+
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo a:link,
+.logo a:visited,
+.logo a:hover,
+.logo a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:60px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-size:18px;
+}
+
+.userBlock{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    max-width:350px;
+}
+
+.userBlock div{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.personImg {
+	width:32px;
+	height:32px;
+}
+.userBlock a:link,
+.userBlock a:visited,
+.userBlock a:hover,
+.userBlock a:active {
+	text-decoration: none;
+	font-weight:bold;
+}
+
+.headNickname a:link,
+.headNickname a:visited,
+.headNickname a:hover,
+.headNickname a:active {
+	text-decoration: none;
+	color:black;
+}
+
+.loginBtn {
+
+    width:100px;
+    height:40px;
+
+    border:1px solid #ddd;
+    background:white;
+    border-radius:20px;
+
+    cursor:pointer;
+}
+
+.logoutBtn {
+
+    width:100px;
+    height:40px;
+
+    border:1px solid #ddd;
+    background:#6c757d;
+    border-radius:20px;
+	color:white;
+    cursor:pointer;
+}
