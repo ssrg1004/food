@@ -18,7 +18,6 @@ public class CommentDAO {
 	private ResultSet rs = null;
 	private String sql = null;
     private String tst =null;
-	private Integer integ = 0;
 	
 	// 내가 쓴 댓글 전체 개수 조회(삭제댓글 제외)
 	public int myComment_count(int member_id) {
